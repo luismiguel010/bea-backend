@@ -1,6 +1,7 @@
 package com.co.penol.bea.persistence.entity;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "cv")
@@ -14,11 +15,15 @@ public class CV {
     @Column(name = "id_user")
     private Integer idUser;
 
-    @Column(name = "id_job")
-    private Integer idJob;
-
     @Column(name = "directory_file")
     private String directoryFile;
+
+    @Column(name = "date_received")
+    private LocalDateTime dateReceived;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "id_user", referencedColumnName = "id_user")
+    private User user;
 
     public Integer getIdCv() {
         return idCv;
@@ -34,14 +39,6 @@ public class CV {
 
     public void setIdUser(Integer idUser) {
         this.idUser = idUser;
-    }
-
-    public Integer getIdJob() {
-        return idJob;
-    }
-
-    public void setIdJob(Integer idJob) {
-        this.idJob = idJob;
     }
 
     public String getDirectoryFile() {

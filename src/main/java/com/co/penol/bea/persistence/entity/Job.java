@@ -1,6 +1,7 @@
 package com.co.penol.bea.persistence.entity;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "jobs")
@@ -13,6 +14,9 @@ public class Job {
     private String name;
     private String description;
     private Boolean state;
+
+    @OneToMany(mappedBy = "job")
+    private List<CV> cvList;
 
     public Integer getIdJob() {
         return idJob;

@@ -17,8 +17,11 @@ public class User {
     private String address;
     private String email;
 
-    @Column(name = "id_cv")
-    private Integer idCv;
+    @Column(name = "academic_profile")
+    private String academicProfile;
+
+    @OneToOne(mappedBy = "users")
+    private CV cv;
 
     public String getIdUser() {
         return idUser;
@@ -66,13 +69,5 @@ public class User {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public Integer getIdCv() {
-        return idCv;
-    }
-
-    public void setIdCv(Integer idCv) {
-        this.idCv = idCv;
     }
 }
