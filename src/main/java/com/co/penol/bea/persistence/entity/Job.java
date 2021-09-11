@@ -11,6 +11,7 @@ public class Job {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_job")
     private Integer idJob;
+
     private String name;
     private String description;
     private Boolean state;
