@@ -16,8 +16,8 @@ public class Job {
     private String description;
     private Boolean state;
 
-    @OneToMany(mappedBy = "job")
-    private List<CV> cvList;
+    @OneToMany(mappedBy = "cv")
+    private List<JobCv> cvList;
 
     public Integer getIdJob() {
         return idJob;

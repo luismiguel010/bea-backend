@@ -2,6 +2,7 @@ package com.co.penol.bea.persistence.entity;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @Table(name = "cv")
@@ -24,6 +25,9 @@ public class CV {
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "id_user", referencedColumnName = "id_user")
     private User user;
+
+    @OneToMany(mappedBy = "job")
+    private List<JobCv> jobList;
 
     public Integer getIdCv() {
         return idCv;
