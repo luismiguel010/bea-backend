@@ -52,4 +52,28 @@ public class CV {
     public void setDirectoryFile(String directoryFile) {
         this.directoryFile = directoryFile;
     }
+
+    public LocalDateTime getDateReceived() {
+        return dateReceived;
+    }
+
+    public void setDateReceived(LocalDateTime dateReceived) {
+        this.dateReceived = dateReceived;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public List<JobCv> getJobList() {
+        return jobList;
+    }
+
+    public void setJobList(List<JobCv> jobList) {
+        this.jobList = jobList;
+    }
 }

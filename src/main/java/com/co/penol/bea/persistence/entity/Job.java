@@ -50,4 +50,12 @@ public class Job {
     public void setState(Boolean state) {
         this.state = state;
     }
+
+    public List<JobCv> getCvList() {
+        return cvList;
+    }
+
+    public void setCvList(List<JobCv> cvList) {
+        this.cvList = cvList;
+    }
 }

@@ -9,7 +9,7 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_user")
-    private String idUser;
+    private Integer idUser;
 
     private String names;
     private String lastnames;
@@ -23,11 +23,11 @@ public class User {
     @OneToOne(mappedBy = "users")
     private CV cv;
 
-    public String getIdUser() {
+    public Integer getIdUser() {
         return idUser;
     }
 
-    public void setIdUser(String idUser) {
+    public void setIdUser(Integer idUser) {
         this.idUser = idUser;
     }
 
@@ -69,5 +69,21 @@ public class User {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getAcademicProfile() {
+        return academicProfile;
+    }
+
+    public void setAcademicProfile(String academicProfile) {
+        this.academicProfile = academicProfile;
+    }
+
+    public CV getCv() {
+        return cv;
+    }
+
+    public void setCv(CV cv) {
+        this.cv = cv;
     }
 }

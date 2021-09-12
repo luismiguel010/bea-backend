@@ -16,7 +16,7 @@ public class UserRepository {
         userCrudRepository.save(user);
     }
 
-    public Optional<User> getUserById(String id) {
+    public Optional<User> getUserById(int id) {
         return userCrudRepository.findById(id);
     }
 
@@ -24,7 +24,7 @@ public class UserRepository {
         return (List<User>) userCrudRepository.findAll();
     }
 
-    public void deleteUserById(String id) {
+    public void deleteUserById(int id) {
         userCrudRepository.deleteById(id);
     }
 }
