@@ -2,6 +2,7 @@ package com.co.penol.bea.persistence.mapper;
 
 import com.co.penol.bea.domain.Administrator;
 import com.co.penol.bea.persistence.entity.AdministratorEntity;
+import org.mapstruct.InheritInverseConfiguration;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.Mappings;
@@ -16,4 +17,7 @@ public interface AdministratorMapper {
             @Mapping(source = "password", target = "password"),
     })
     Administrator toAdministrator(AdministratorEntity administratorEntity);
+
+    @InheritInverseConfiguration
+    AdministratorEntity toAdministratorEntity(Administrator administrator);
 }

@@ -1,13 +1,13 @@
 package com.co.penol.bea.persistence.mapper;
 
-import com.co.penol.bea.domain.Administrator;
 import com.co.penol.bea.domain.CV;
-import com.co.penol.bea.persistence.entity.AdministratorEntity;
 import com.co.penol.bea.persistence.entity.CVEntity;
 import org.mapstruct.InheritInverseConfiguration;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.Mappings;
+
+import java.util.List;
 
 @Mapper(componentModel = "spring", uses = {UserMapper.class})
 public interface CVMapper {
@@ -20,7 +20,8 @@ public interface CVMapper {
             @Mapping(source = "userEntity", target = "user"),
     })
     CV toCV(CVEntity cvEntity);
+    List<CV> toCVList(List<CVEntity> cvEntityList);
 
     @InheritInverseConfiguration
-    AdministratorEntity toAdministratorEntity(Administrator administrator);
+    CVEntity toCVEntity(CV cv);
 }

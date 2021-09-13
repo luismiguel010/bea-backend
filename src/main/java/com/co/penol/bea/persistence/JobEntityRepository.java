@@ -6,7 +6,7 @@ import com.co.penol.bea.persistence.queries.JobCrudRepository;
 import java.util.List;
 import java.util.Optional;
 
-public class JobRepository {
+public class JobEntityRepository {
 
     private JobCrudRepository jobCrudRepository;
 
