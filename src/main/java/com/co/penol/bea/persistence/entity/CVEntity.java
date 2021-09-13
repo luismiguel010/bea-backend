@@ -6,7 +6,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "cv")
-public class CV {
+public class CVEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,10 +24,10 @@ public class CV {
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "id_user", referencedColumnName = "id_user")
-    private User user;
+    private UserEntity userEntity;
 
     @OneToMany(mappedBy = "job")
-    private List<JobCv> jobList;
+    private List<JobCvEntity> jobList;
 
     public Integer getIdCv() {
         return idCv;
@@ -61,19 +61,19 @@ public class CV {
         this.dateReceived = dateReceived;
     }
 
-    public User getUser() {
-        return user;
+    public UserEntity getUser() {
+        return userEntity;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setUser(UserEntity userEntity) {
+        this.userEntity = userEntity;
     }
 
-    public List<JobCv> getJobList() {
+    public List<JobCvEntity> getJobList() {
         return jobList;
     }
 
-    public void setJobList(List<JobCv> jobList) {
+    public void setJobList(List<JobCvEntity> jobList) {
         this.jobList = jobList;
     }
 }

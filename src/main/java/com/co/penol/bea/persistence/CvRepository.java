@@ -1,6 +1,6 @@
 package com.co.penol.bea.persistence;
 
-import com.co.penol.bea.persistence.entity.CV;
+import com.co.penol.bea.persistence.entity.CVEntity;
 import com.co.penol.bea.persistence.queries.CvCrudRepository;
 import org.springframework.stereotype.Repository;
 
@@ -12,20 +12,24 @@ public class CvRepository {
 
     private CvCrudRepository cvCrudRepository;
 
-    public List<CV> getAll() {
-        return (List<CV>) cvCrudRepository.findAll();
+    public List<CVEntity> getAll() {
+        return (List<CVEntity>) cvCrudRepository.findAll();
     }
     
-    public void saveCv(CV cv) {
-        cvCrudRepository.save(cv);
+    public void saveCv(CVEntity cvEntity) {
+        cvCrudRepository.save(cvEntity);
     }
     
-    public Optional<CV> getByIdCv(int idCv) {
+    public Optional<CVEntity> getByIdCv(int idCv) {
         return cvCrudRepository.findById(idCv);
     }
 
-    public CV getByIdUser(int idUser) {
+    public CVEntity getByIdUser(int idUser) {
         return cvCrudRepository.findByIdUser(idUser);
+    }
+
+    public void deleteCv(int idCv) {
+        cvCrudRepository.deleteById(idCv);
     }
     
 }

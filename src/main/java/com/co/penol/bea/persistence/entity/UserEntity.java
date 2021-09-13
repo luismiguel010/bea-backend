@@ -4,7 +4,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "users")
-public class User {
+public class UserEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,7 +21,7 @@ public class User {
     private String academicProfile;
 
     @OneToOne(mappedBy = "users")
-    private CV cv;
+    private CVEntity cvEntity;
 
     public Integer getIdUser() {
         return idUser;
@@ -79,11 +79,11 @@ public class User {
         this.academicProfile = academicProfile;
     }
 
-    public CV getCv() {
-        return cv;
+    public CVEntity getCv() {
+        return cvEntity;
     }
 
-    public void setCv(CV cv) {
-        this.cv = cv;
+    public void setCv(CVEntity cvEntity) {
+        this.cvEntity = cvEntity;
     }
 }

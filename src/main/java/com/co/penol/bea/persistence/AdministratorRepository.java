@@ -1,6 +1,6 @@
 package com.co.penol.bea.persistence;
 
-import com.co.penol.bea.persistence.entity.Administrator;
+import com.co.penol.bea.persistence.entity.AdministratorEntity;
 import com.co.penol.bea.persistence.queries.AdministratorCrudRepository;
 import org.springframework.stereotype.Repository;
 
@@ -12,16 +12,16 @@ public class AdministratorRepository {
 
     private AdministratorCrudRepository administratorCrudRepository;
 
-    public Optional<Administrator> getAdministratorById(String id) {
+    public Optional<AdministratorEntity> getAdministratorById(String id) {
         return administratorCrudRepository.findById(id);
     }
 
-    public List<Administrator> getAllAdministrator() {
-        return (List<Administrator>) administratorCrudRepository.findAll();
+    public List<AdministratorEntity> getAllAdministrator() {
+        return (List<AdministratorEntity>) administratorCrudRepository.findAll();
     }
 
-    public void saveAdministrator(Administrator administrator) {
-        administratorCrudRepository.save(administrator);
+    public void saveAdministrator(AdministratorEntity administratorEntity) {
+        administratorCrudRepository.save(administratorEntity);
     }
 
     public void deleteAdministrator(String id) {

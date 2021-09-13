@@ -1,6 +1,6 @@
 package com.co.penol.bea.persistence;
 
-import com.co.penol.bea.persistence.entity.Job;
+import com.co.penol.bea.persistence.entity.JobEntity;
 import com.co.penol.bea.persistence.queries.JobCrudRepository;
 
 import java.util.List;
@@ -10,16 +10,16 @@ public class JobRepository {
 
     private JobCrudRepository jobCrudRepository;
 
-    public void saveJob(Job job) {
-        jobCrudRepository.save(job);
+    public void saveJob(JobEntity jobEntity) {
+        jobCrudRepository.save(jobEntity);
     }
 
-    public Optional<Job> getJobById(int id) {
+    public Optional<JobEntity> getJobById(int id) {
         return jobCrudRepository.findById(id);
     }
 
-    public List<Job> getAllJobs() {
-        return (List<Job>) jobCrudRepository.findAll();
+    public List<JobEntity> getAllJobs() {
+        return (List<JobEntity>) jobCrudRepository.findAll();
     }
 
     public void deleteJob(int id) {

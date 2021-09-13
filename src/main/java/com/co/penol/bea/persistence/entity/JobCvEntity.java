@@ -4,18 +4,18 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "jobs_cv")
-public class JobCv {
+public class JobCvEntity {
 
     @EmbeddedId
     private JobCvPK id;
 
     @ManyToOne
     @JoinColumn(name = "id_job", insertable = false, updatable = false)
-    private Job job;
+    private JobEntity jobEntity;
 
     @ManyToOne
     @JoinColumn(name = "id_cv", insertable = false, updatable = false)
-    private CV cv;
+    private CVEntity cvEntity;
 
     public JobCvPK getId() {
         return id;
@@ -25,19 +25,19 @@ public class JobCv {
         this.id = id;
     }
 
-    public Job getJob() {
-        return job;
+    public JobEntity getJob() {
+        return jobEntity;
     }
 
-    public void setJob(Job job) {
-        this.job = job;
+    public void setJob(JobEntity jobEntity) {
+        this.jobEntity = jobEntity;
     }
 
-    public CV getCv() {
-        return cv;
+    public CVEntity getCv() {
+        return cvEntity;
     }
 
-    public void setCv(CV cv) {
-        this.cv = cv;
+    public void setCv(CVEntity cvEntity) {
+        this.cvEntity = cvEntity;
     }
 }

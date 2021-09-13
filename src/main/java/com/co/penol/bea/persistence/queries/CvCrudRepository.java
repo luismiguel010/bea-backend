@@ -1,8 +1,8 @@
 package com.co.penol.bea.persistence.queries;
 
-import com.co.penol.bea.persistence.entity.CV;
+import com.co.penol.bea.persistence.entity.CVEntity;
 import org.springframework.data.repository.CrudRepository;
 
-public interface CvCrudRepository extends CrudRepository<CV, Integer> {
-    CV findByIdUser(int idUser);
+public interface CvCrudRepository extends CrudRepository<CVEntity, Integer> {
+    CVEntity findByIdUser(int idUser);
 }

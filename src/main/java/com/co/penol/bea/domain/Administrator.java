@@ -1,13 +1,7 @@
-package com.co.penol.bea.persistence.entity;
+package com.co.penol.bea.domain;
 
-import javax.persistence.*;
-
-@Entity
-@Table(name = "administrators")
 public class Administrator {
 
-    @Id
-    @Column(name = "id_admin")
     private String idAdmin;
     private String names;
     private String lastnames;

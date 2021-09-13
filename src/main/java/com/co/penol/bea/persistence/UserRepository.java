@@ -1,6 +1,6 @@
 package com.co.penol.bea.persistence;
 
-import com.co.penol.bea.persistence.entity.User;
+import com.co.penol.bea.persistence.entity.UserEntity;
 import com.co.penol.bea.persistence.queries.UserCrudRepository;
 import org.springframework.stereotype.Repository;
 
@@ -12,16 +12,16 @@ public class UserRepository {
 
     private UserCrudRepository userCrudRepository;
 
-    public void createUser(User user) {
-        userCrudRepository.save(user);
+    public void createUser(UserEntity userEntity) {
+        userCrudRepository.save(userEntity);
     }
 
-    public Optional<User> getUserById(int id) {
+    public Optional<UserEntity> getUserById(int id) {
         return userCrudRepository.findById(id);
     }
 
-    public List<User> getAllUsers() {
-        return (List<User>) userCrudRepository.findAll();
+    public List<UserEntity> getAllUsers() {
+        return (List<UserEntity>) userCrudRepository.findAll();
     }
 
     public void deleteUserById(int id) {

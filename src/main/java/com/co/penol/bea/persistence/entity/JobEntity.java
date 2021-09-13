@@ -5,7 +5,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "jobs")
-public class Job {
+public class JobEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -17,7 +17,7 @@ public class Job {
     private Boolean state;
 
     @OneToMany(mappedBy = "cv")
-    private List<JobCv> cvList;
+    private List<JobCvEntity> cvList;
 
     public Integer getIdJob() {
         return idJob;
@@ -51,11 +51,11 @@ public class Job {
         this.state = state;
     }
 
-    public List<JobCv> getCvList() {
+    public List<JobCvEntity> getCvList() {
         return cvList;
     }
 
-    public void setCvList(List<JobCv> cvList) {
+    public void setCvList(List<JobCvEntity> cvList) {
         this.cvList = cvList;
     }
 }
