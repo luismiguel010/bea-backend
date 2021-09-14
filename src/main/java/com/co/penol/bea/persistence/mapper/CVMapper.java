@@ -15,13 +15,14 @@ public interface CVMapper {
     @Mappings({
             @Mapping(source = "idCv", target = "idCv"),
             @Mapping(source = "idUser", target = "idUser"),
+            @Mapping(source = "userEntity", target = "user"),
             @Mapping(source = "directoryFile", target = "directoryFile"),
             @Mapping(source = "dateReceived", target = "dateReceived"),
-            @Mapping(source = "userEntity", target = "user"),
     })
     CV toCV(CVEntity cvEntity);
     List<CV> toCVList(List<CVEntity> cvEntityList);
 
     @InheritInverseConfiguration
+    @Mapping(target = "jobList", ignore = true)
     CVEntity toCVEntity(CV cv);
 }

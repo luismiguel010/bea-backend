@@ -16,17 +16,17 @@ public class CVEntity {
     @Column(name = "id_user")
     private Integer idUser;
 
+    @OneToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "id_user", insertable = false, updatable = false)
+    private UserEntity userEntity;
+
     @Column(name = "directory_file")
     private String directoryFile;
 
     @Column(name = "date_received")
     private LocalDateTime dateReceived;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "id_user", referencedColumnName = "id_user")
-    private UserEntity userEntity;
-
-    @OneToMany(mappedBy = "job")
+    @OneToMany(mappedBy = "jobEntity")
     private List<JobCvEntity> jobList;
 
     public Integer getIdCv() {
@@ -37,12 +37,12 @@ public class CVEntity {
         this.idCv = idCv;
     }
 
-    public Integer getIdUser() {
-        return idUser;
+    public UserEntity getUser() {
+        return userEntity;
     }
 
-    public void setIdUser(Integer idUser) {
-        this.idUser = idUser;
+    public void setUser(UserEntity userEntity) {
+        this.userEntity = userEntity;
     }
 
     public String getDirectoryFile() {
@@ -61,19 +61,27 @@ public class CVEntity {
         this.dateReceived = dateReceived;
     }
 
-    public UserEntity getUser() {
-        return userEntity;
-    }
-
-    public void setUser(UserEntity userEntity) {
-        this.userEntity = userEntity;
-    }
-
     public List<JobCvEntity> getJobList() {
         return jobList;
     }
 
     public void setJobList(List<JobCvEntity> jobList) {
         this.jobList = jobList;
+    }
+
+    public UserEntity getUserEntity() {
+        return userEntity;
+    }
+
+    public void setUserEntity(UserEntity userEntity) {
+        this.userEntity = userEntity;
+    }
+
+    public Integer getIdUser() {
+        return idUser;
+    }
+
+    public void setIdUser(Integer idUser) {
+        this.idUser = idUser;
     }
 }

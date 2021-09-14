@@ -16,7 +16,7 @@ public class JobEntity {
     private String description;
     private Boolean state;
 
-    @OneToMany(mappedBy = "cv")
+    @OneToMany(mappedBy = "cvEntity")
     private List<JobCvEntity> cvList;
 
     public Integer getIdJob() {

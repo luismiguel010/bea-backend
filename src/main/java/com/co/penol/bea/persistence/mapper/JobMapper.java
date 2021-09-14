@@ -22,5 +22,6 @@ public interface JobMapper {
 
     @InheritInverseConfiguration
     @Mapping(target = "description", ignore = true)
+    @Mapping(target = "cvList", ignore = true)
     JobEntity toJobEntity(Job job);
 }

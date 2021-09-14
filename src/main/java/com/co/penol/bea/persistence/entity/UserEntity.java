@@ -20,7 +20,7 @@ public class UserEntity {
     @Column(name = "academic_profile")
     private String academicProfile;
 
-    @OneToOne(mappedBy = "users")
+    @OneToOne(fetch = FetchType.LAZY, cascade =  CascadeType.ALL, mappedBy = "userEntity")
     private CVEntity cvEntity;
 
     public Integer getIdUser() {
@@ -79,11 +79,11 @@ public class UserEntity {
         this.academicProfile = academicProfile;
     }
 
-    public CVEntity getCv() {
+    public CVEntity getCvEntity() {
         return cvEntity;
     }
 
-    public void setCv(CVEntity cvEntity) {
+    public void setCvEntity(CVEntity cvEntity) {
         this.cvEntity = cvEntity;
     }
 }
