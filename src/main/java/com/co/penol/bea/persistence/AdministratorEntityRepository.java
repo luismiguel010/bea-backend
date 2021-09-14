@@ -1,29 +1,34 @@
 package com.co.penol.bea.persistence;
 
-import com.co.penol.bea.persistence.entity.AdministratorEntity;
+import com.co.penol.bea.domain.Administrator;
+import com.co.penol.bea.domain.repository.AdministratorRepository;
+import com.co.penol.bea.persistence.mapper.AdministratorMapper;
 import com.co.penol.bea.persistence.queries.AdministratorCrudRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import java.util.List;
 import java.util.Optional;
 
 @Repository
-public class AdministratorEntityRepository {
+public class AdministratorEntityRepository implements AdministratorRepository {
 
+    @Autowired
     private AdministratorCrudRepository administratorCrudRepository;
 
-    public Optional<AdministratorEntity> getAdministratorById(String id) {
-        return administratorCrudRepository.findById(id);
+    @Autowired
+    private AdministratorMapper administratorMapper;
+
+    @Override
+    public Optional<Administrator> getAdministratorById(String id) {
+        return administratorCrudRepository.findById(id).map(administrator -> administratorMapper.toAdministrator(administrator));
     }
 
-    public List<AdministratorEntity> getAllAdministrator() {
-        return (List<AdministratorEntity>) administratorCrudRepository.findAll();
+    @Override
+    public void saveAdministrator(Administrator administrator) {
+        administratorCrudRepository.save(administratorMapper.toAdministratorEntity(administrator));
     }
 
-    public void saveAdministrator(AdministratorEntity administratorEntity) {
-        administratorCrudRepository.save(administratorEntity);
-    }
-
+    @Override
     public void deleteAdministrator(String id) {
         administratorCrudRepository.deleteById(id);
     }

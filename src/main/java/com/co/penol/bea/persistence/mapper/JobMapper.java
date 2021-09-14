@@ -7,6 +7,8 @@ import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.Mappings;
 
+import java.util.List;
+
 @Mapper(componentModel = "spring")
 public interface JobMapper {
 
@@ -16,6 +18,7 @@ public interface JobMapper {
             @Mapping(source = "state", target = "state"),
     })
     Job toJob(JobEntity jobEntity);
+    List<Job> toJobList(List<JobEntity> jobEntityList);
 
     @InheritInverseConfiguration
     @Mapping(target = "description", ignore = true)
