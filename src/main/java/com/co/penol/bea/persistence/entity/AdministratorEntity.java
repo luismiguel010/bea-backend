@@ -7,18 +7,19 @@ import javax.persistence.*;
 public class AdministratorEntity {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_admin")
-    private String idAdmin;
+    private Integer idAdmin;
     private String names;
     private String lastnames;
     private String email;
     private String password;
 
-    public String getIdAdmin() {
+    public Integer getIdAdmin() {
         return idAdmin;
     }
 
-    public void setIdAdmin(String idAdmin) {
+    public void setIdAdmin(Integer idAdmin) {
         this.idAdmin = idAdmin;
     }
 

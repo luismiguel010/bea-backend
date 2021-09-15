@@ -13,7 +13,7 @@ public class AdministratorService {
     @Autowired
     private AdministratorRepository administratorRepository;
 
-    public Optional<Administrator> getAdministratorById(String id) {
+    public Optional<Administrator> getAdministratorById(int id) {
         return administratorRepository.getAdministratorById(id);
     }
 
@@ -21,7 +21,7 @@ public class AdministratorService {
         administratorRepository.saveAdministrator(administrator);
     }
 
-    public boolean deleteAdministrator(String id) {
+    public boolean deleteAdministrator(int id) {
         return getAdministratorById(id).map(administrator -> {
             administratorRepository.deleteAdministrator(id);
             return true;

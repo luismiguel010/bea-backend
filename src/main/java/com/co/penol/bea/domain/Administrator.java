@@ -2,17 +2,17 @@ package com.co.penol.bea.domain;
 
 public class Administrator {
 
-    private String idAdmin;
+    private int idAdmin;
     private String names;
     private String lastnames;
     private String email;
     private String password;
 
-    public String getIdAdmin() {
+    public int getIdAdmin() {
         return idAdmin;
     }
 
-    public void setIdAdmin(String idAdmin) {
+    public void setIdAdmin(int idAdmin) {
         this.idAdmin = idAdmin;
     }
 

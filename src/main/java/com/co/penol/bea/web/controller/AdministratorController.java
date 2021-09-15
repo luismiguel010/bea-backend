@@ -3,8 +3,7 @@ package com.co.penol.bea.web.controller;
 import com.co.penol.bea.domain.Administrator;
 import com.co.penol.bea.domain.service.AdministratorService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
 
@@ -15,15 +14,23 @@ public class AdministratorController {
     @Autowired
     private AdministratorService administratorService;
 
-    public Optional<Administrator> getAdministratorById(String id) {
+    @GetMapping("/get")
+    public Optional<Administrator> getAdministratorById(int id) {
         return administratorService.getAdministratorById(id);
     }
 
-    public void saveAdministrator(Administrator administrator) {
+    @PostMapping("/insert")
+    public void saveAdministrator(@RequestBody Administrator administrator) {
         administratorService.saveAdministrator(administrator);
     }
 
-    public boolean deleteAdministrator(String id) {
+    @PutMapping("/update")
+    public void updateAdministrator(@RequestBody Administrator administrator) {
+        administratorService.saveAdministrator(administrator);
+    }
+
+    @DeleteMapping("/delete")
+    public boolean deleteAdministrator(int id) {
         return administratorService.deleteAdministrator(id);
     }
 
