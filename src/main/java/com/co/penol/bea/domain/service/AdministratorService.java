@@ -17,8 +17,8 @@ public class AdministratorService {
         return administratorRepository.getAdministratorById(id);
     }
 
-    public void saveAdministrator(Administrator administrator) {
-        administratorRepository.saveAdministrator(administrator);
+    public Administrator saveAdministrator(Administrator administrator) {
+        return administratorRepository.saveAdministrator(administrator);
     }
 
     public boolean deleteAdministrator(int id) {

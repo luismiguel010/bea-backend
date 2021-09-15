@@ -6,6 +6,6 @@ import java.util.Optional;
 
 public interface AdministratorRepository {
     Optional<Administrator> getAdministratorById(int id);
-    void saveAdministrator(Administrator administrator);
+    Administrator saveAdministrator(Administrator administrator);
     void deleteAdministrator(int id);
 }

@@ -3,6 +3,8 @@ package com.co.penol.bea.web.controller;
 import com.co.penol.bea.domain.Administrator;
 import com.co.penol.bea.domain.service.AdministratorService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
@@ -15,23 +17,29 @@ public class AdministratorController {
     private AdministratorService administratorService;
 
     @GetMapping("/get")
-    public Optional<Administrator> getAdministratorById(int id) {
-        return administratorService.getAdministratorById(id);
+    public ResponseEntity<Administrator> getAdministratorById(int id) {
+        return administratorService.getAdministratorById(id)
+                .map(administrator -> new ResponseEntity<>(administrator, HttpStatus.OK))
+                .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 
     @PostMapping("/insert")
-    public void saveAdministrator(@RequestBody Administrator administrator) {
-        administratorService.saveAdministrator(administrator);
+    public ResponseEntity<Administrator> saveAdministrator(@RequestBody Administrator administrator) {
+        return new ResponseEntity<>(administratorService.saveAdministrator(administrator), HttpStatus.CREATED);
     }
 
     @PutMapping("/update")
-    public void updateAdministrator(@RequestBody Administrator administrator) {
-        administratorService.saveAdministrator(administrator);
+    public ResponseEntity<Administrator> updateAdministrator(@RequestBody Administrator administrator) {
+        return new ResponseEntity<>(administratorService.saveAdministrator(administrator), HttpStatus.CREATED);
     }
 
     @DeleteMapping("/delete")
-    public boolean deleteAdministrator(int id) {
-        return administratorService.deleteAdministrator(id);
+    public ResponseEntity deleteAdministrator(int id) {
+        if (administratorService.deleteAdministrator(id)) {
+            return new ResponseEntity(HttpStatus.OK);
+        } else {
+            return new ResponseEntity(HttpStatus.NOT_FOUND);
+        }
     }
 
 }

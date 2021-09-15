@@ -2,6 +2,7 @@ package com.co.penol.bea.persistence;
 
 import com.co.penol.bea.domain.Administrator;
 import com.co.penol.bea.domain.repository.AdministratorRepository;
+import com.co.penol.bea.persistence.entity.AdministratorEntity;
 import com.co.penol.bea.persistence.mapper.AdministratorMapper;
 import com.co.penol.bea.persistence.queries.AdministratorCrudRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,8 +25,9 @@ public class AdministratorEntityRepository implements AdministratorRepository {
     }
 
     @Override
-    public void saveAdministrator(Administrator administrator) {
-        administratorCrudRepository.save(administratorMapper.toAdministratorEntity(administrator));
+    public Administrator saveAdministrator(Administrator administrator) {
+        return administratorMapper.toAdministrator(administratorCrudRepository
+                .save(administratorMapper.toAdministratorEntity(administrator)));
     }
 
     @Override
