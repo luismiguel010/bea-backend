@@ -9,7 +9,7 @@ import org.mapstruct.Mappings;
 
 import java.util.List;
 
-@Mapper(componentModel = "spring", uses = {CVMapper.class})
+@Mapper(componentModel = "spring")
 public interface UserMapper {
 
     @Mappings({
@@ -20,11 +20,11 @@ public interface UserMapper {
             @Mapping(source = "address", target = "address"),
             @Mapping(source = "email", target = "email"),
             @Mapping(source = "academicProfile", target = "academicProfile"),
-            @Mapping(source = "cvEntity", target = "cv"),
     })
     User toUser(UserEntity userEntity);
     List<User> toUsers(List<UserEntity> userEntityList);
 
     @InheritInverseConfiguration
+    @Mapping(target = "cvEntity", ignore = true)
     UserEntity toUserEntity(User user);
 }

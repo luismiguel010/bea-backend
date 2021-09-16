@@ -7,8 +7,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Optional;
-
 @RestController
 @RequestMapping("/admin")
 public class AdministratorController {
@@ -30,7 +28,7 @@ public class AdministratorController {
 
     @PutMapping("/update")
     public ResponseEntity<Administrator> updateAdministrator(@RequestBody Administrator administrator) {
-        return new ResponseEntity<>(administratorService.saveAdministrator(administrator), HttpStatus.CREATED);
+        return new ResponseEntity<>(administratorService.saveAdministrator(administrator), HttpStatus.OK);
     }
 
     @DeleteMapping("/delete")

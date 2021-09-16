@@ -25,19 +25,19 @@ public class JobCvEntity {
         this.id = id;
     }
 
-    public JobEntity getJob() {
+    public JobEntity getJobEntity() {
         return jobEntity;
     }
 
-    public void setJob(JobEntity jobEntity) {
+    public void setJobEntity(JobEntity jobEntity) {
         this.jobEntity = jobEntity;
     }
 
-    public CVEntity getCv() {
+    public CVEntity getCvEntity() {
         return cvEntity;
     }
 
-    public void setCv(CVEntity cvEntity) {
+    public void setCvEntity(CVEntity cvEntity) {
         this.cvEntity = cvEntity;
     }
 }

@@ -18,15 +18,15 @@ public class CvService {
         return cvRepository.getAll();
     }
 
-    public void saveCv(CV cv) {
-        cvRepository.saveCv(cv);
+    public CV saveCv(CV cv) {
+        return cvRepository.saveCv(cv);
     }
 
     public Optional<CV> getByIdCv(int id) {
         return cvRepository.getByIdCv(id);
     }
 
-    public CV getByIdUser(int id) {
+    public Optional<CV> getByIdUser(int id) {
         return cvRepository.getByIdUser(id);
     }
 

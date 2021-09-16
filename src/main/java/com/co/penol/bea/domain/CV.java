@@ -1,14 +1,15 @@
 package com.co.penol.bea.domain;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 public class CV {
 
     private int idCv;
     private int idUser;
-    private User user;
     private String directoryFile;
     private LocalDateTime dateReceived;
+    private List<JobCv> jobCvList;
 
     public int getIdCv() {
         return idCv;
@@ -42,11 +43,11 @@ public class CV {
         this.dateReceived = dateReceived;
     }
 
-    public User getUser() {
-        return user;
+    public List<JobCv> getJobCvList() {
+        return jobCvList;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setJobCvList(List<JobCv> jobCvList) {
+        this.jobCvList = jobCvList;
     }
 }

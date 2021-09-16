@@ -17,7 +17,7 @@ public class JobEntity {
     private Boolean state;
 
     @OneToMany(mappedBy = "cvEntity")
-    private List<JobCvEntity> cvList;
+    private List<JobCvEntity> jobCvList;
 
     public Integer getIdJob() {
         return idJob;
@@ -51,11 +51,11 @@ public class JobEntity {
         this.state = state;
     }
 
-    public List<JobCvEntity> getCvList() {
-        return cvList;
+    public List<JobCvEntity> getJobCvList() {
+        return jobCvList;
     }
 
-    public void setCvList(List<JobCvEntity> cvList) {
-        this.cvList = cvList;
+    public void setJobCvList(List<JobCvEntity> jobCvList) {
+        this.jobCvList = jobCvList;
     }
 }

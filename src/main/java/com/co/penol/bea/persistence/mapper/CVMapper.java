@@ -9,13 +9,12 @@ import org.mapstruct.Mappings;
 
 import java.util.List;
 
-@Mapper(componentModel = "spring", uses = {UserMapper.class})
+@Mapper(componentModel = "spring", uses = {JobCvMapper.class})
 public interface CVMapper {
 
     @Mappings({
             @Mapping(source = "idCv", target = "idCv"),
             @Mapping(source = "idUser", target = "idUser"),
-            @Mapping(source = "userEntity", target = "user"),
             @Mapping(source = "directoryFile", target = "directoryFile"),
             @Mapping(source = "dateReceived", target = "dateReceived"),
     })
@@ -23,6 +22,6 @@ public interface CVMapper {
     List<CV> toCVList(List<CVEntity> cvEntityList);
 
     @InheritInverseConfiguration
-    @Mapping(target = "jobList", ignore = true)
+    @Mapping(target = "userEntity", ignore = true)
     CVEntity toCVEntity(CV cv);
 }

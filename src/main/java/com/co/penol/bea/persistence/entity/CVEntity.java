@@ -27,7 +27,7 @@ public class CVEntity {
     private LocalDateTime dateReceived;
 
     @OneToMany(mappedBy = "jobEntity")
-    private List<JobCvEntity> jobList;
+    private List<JobCvEntity> jobCvList;
 
     public Integer getIdCv() {
         return idCv;
@@ -37,11 +37,19 @@ public class CVEntity {
         this.idCv = idCv;
     }
 
-    public UserEntity getUser() {
+    public Integer getIdUser() {
+        return idUser;
+    }
+
+    public void setIdUser(Integer idUser) {
+        this.idUser = idUser;
+    }
+
+    public UserEntity getUserEntity() {
         return userEntity;
     }
 
-    public void setUser(UserEntity userEntity) {
+    public void setUserEntity(UserEntity userEntity) {
         this.userEntity = userEntity;
     }
 
@@ -61,27 +69,11 @@ public class CVEntity {
         this.dateReceived = dateReceived;
     }
 
-    public List<JobCvEntity> getJobList() {
-        return jobList;
+    public List<JobCvEntity> getJobCvList() {
+        return jobCvList;
     }
 
-    public void setJobList(List<JobCvEntity> jobList) {
-        this.jobList = jobList;
-    }
-
-    public UserEntity getUserEntity() {
-        return userEntity;
-    }
-
-    public void setUserEntity(UserEntity userEntity) {
-        this.userEntity = userEntity;
-    }
-
-    public Integer getIdUser() {
-        return idUser;
-    }
-
-    public void setIdUser(Integer idUser) {
-        this.idUser = idUser;
+    public void setJobCvList(List<JobCvEntity> jobCvList) {
+        this.jobCvList = jobCvList;
     }
 }

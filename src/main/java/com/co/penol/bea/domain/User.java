@@ -9,15 +9,6 @@ public class User {
     private String address;
     private String email;
     private String academicProfile;
-    private CV cv;
-
-    public CV getCv() {
-        return cv;
-    }
-
-    public void setCv(CV cv) {
-        this.cv = cv;
-    }
 
     public int getIdUser() {
         return idUser;

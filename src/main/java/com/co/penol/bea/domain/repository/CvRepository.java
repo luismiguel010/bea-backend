@@ -7,9 +7,9 @@ import java.util.Optional;
 
 public interface CvRepository {
     List<CV> getAll();
-    void saveCv(CV cv);
+    CV saveCv(CV cv);
     Optional<CV> getByIdCv(int id);
-    CV getByIdUser(int id);
+    Optional<CV> getByIdUser(int id);
     void deleteCv(int id);
 
 }

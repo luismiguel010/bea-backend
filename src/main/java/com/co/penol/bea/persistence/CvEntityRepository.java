@@ -26,8 +26,8 @@ public class CvEntityRepository implements CvRepository {
     }
 
     @Override
-    public void saveCv(CV cv) {
-        cvCrudRepository.save(cvMapper.toCVEntity(cv));
+    public CV saveCv(CV cv) {
+        return cvMapper.toCV(cvCrudRepository.save(cvMapper.toCVEntity(cv)));
     }
 
     @Override
@@ -36,8 +36,8 @@ public class CvEntityRepository implements CvRepository {
     }
 
     @Override
-    public CV getByIdUser(int id) {
-        return cvMapper.toCV(cvCrudRepository.findByIdUser(id));
+    public Optional<CV> getByIdUser(int id) {
+        return cvCrudRepository.findByIdUser(id).map(cvEntity -> cvMapper.toCV(cvEntity));
     }
 
     @Override

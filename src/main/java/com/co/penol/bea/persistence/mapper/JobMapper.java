@@ -9,19 +9,18 @@ import org.mapstruct.Mappings;
 
 import java.util.List;
 
-@Mapper(componentModel = "spring")
+@Mapper(componentModel = "spring", uses = {JobCvMapper.class})
 public interface JobMapper {
 
     @Mappings({
             @Mapping(source = "idJob", target = "idJob"),
             @Mapping(source = "name", target = "name"),
+            @Mapping(source = "description", target = "description"),
             @Mapping(source = "state", target = "state"),
     })
     Job toJob(JobEntity jobEntity);
     List<Job> toJobList(List<JobEntity> jobEntityList);
 
     @InheritInverseConfiguration
-    @Mapping(target = "description", ignore = true)
-    @Mapping(target = "cvList", ignore = true)
     JobEntity toJobEntity(Job job);
 }
