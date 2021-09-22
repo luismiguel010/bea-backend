@@ -22,8 +22,8 @@ public class UserEntityRepository implements UserRepository {
 
 
     @Override
-    public void saveUser(User user) {
-        userCrudRepository.save(userMapper.toUserEntity(user));
+    public User saveUser(User user) {
+        return userMapper.toUser(userCrudRepository.save(userMapper.toUserEntity(user)));
     }
 
     @Override

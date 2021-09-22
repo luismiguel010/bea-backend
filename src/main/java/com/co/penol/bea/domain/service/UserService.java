@@ -14,8 +14,8 @@ public class UserService {
     @Autowired
     private UserRepository userRepository;
 
-    public void saveUser(User user) {
-        userRepository.saveUser(user);
+    public User saveUser(User user) {
+        return userRepository.saveUser(user);
     }
 
     public Optional<User> getUserById(int id) {
