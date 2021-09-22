@@ -8,7 +8,6 @@ public class Job {
     private String name;
     private String description;
     private boolean state;
-    private List<JobCv> jobCvList;
 
     public int getIdJob() {
         return idJob;
@@ -40,13 +39,5 @@ public class Job {
 
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    public List<JobCv> getJobCvList() {
-        return jobCvList;
-    }
-
-    public void setJobCvList(List<JobCv> jobCvList) {
-        this.jobCvList = jobCvList;
     }
 }

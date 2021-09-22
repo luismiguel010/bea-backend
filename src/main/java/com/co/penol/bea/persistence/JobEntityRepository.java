@@ -21,8 +21,8 @@ public class JobEntityRepository implements JobRepository {
     private JobMapper jobMapper;
 
     @Override
-    public void saveJob(Job job) {
-        jobCrudRepository.save(jobMapper.toJobEntity(job));
+    public Job saveJob(Job job) {
+        return jobMapper.toJob(jobCrudRepository.save(jobMapper.toJobEntity(job)));
     }
 
     @Override
