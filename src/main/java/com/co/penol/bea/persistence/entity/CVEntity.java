@@ -26,7 +26,7 @@ public class CVEntity {
     @Column(name = "date_received")
     private LocalDateTime dateReceived;
 
-    @OneToMany(mappedBy = "jobEntity")
+    @OneToMany(mappedBy = "cvEntity", cascade = {CascadeType.ALL})
     private List<JobCvEntity> jobCvList;
 
     public Integer getIdCv() {

@@ -27,7 +27,9 @@ public class CvEntityRepository implements CvRepository {
 
     @Override
     public CV saveCv(CV cv) {
-        return cvMapper.toCV(cvCrudRepository.save(cvMapper.toCVEntity(cv)));
+        CVEntity cvEntity = cvMapper.toCVEntity(cv);
+        cvEntity.getJobCvList().forEach(jobCvEntity -> jobCvEntity.setCvEntity(cvEntity));
+        return cvMapper.toCV(cvCrudRepository.save(cvEntity));
     }
 
     @Override

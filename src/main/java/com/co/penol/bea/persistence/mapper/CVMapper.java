@@ -17,6 +17,7 @@ public interface CVMapper {
             @Mapping(source = "idUser", target = "idUser"),
             @Mapping(source = "directoryFile", target = "directoryFile"),
             @Mapping(source = "dateReceived", target = "dateReceived"),
+            @Mapping(source = "jobCvList", target = "jobCvList")
     })
     CV toCV(CVEntity cvEntity);
     List<CV> toCVList(List<CVEntity> cvEntityList);

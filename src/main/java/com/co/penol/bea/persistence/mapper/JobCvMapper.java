@@ -7,7 +7,7 @@ import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.Mappings;
 
-@Mapper(componentModel = "spring", uses = {CVMapper.class})
+@Mapper(componentModel = "spring", uses = {CVMapper.class, JobMapper.class})
 public interface JobCvMapper {
     @Mappings({
             @Mapping(source = "id.idCv", target = "idCv"),

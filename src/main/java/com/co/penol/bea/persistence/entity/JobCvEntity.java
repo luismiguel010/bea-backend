@@ -14,6 +14,7 @@ public class JobCvEntity {
     private JobEntity jobEntity;
 
     @ManyToOne
+    @MapsId("idCv")
     @JoinColumn(name = "id_cv", insertable = false, updatable = false)
     private CVEntity cvEntity;
 
