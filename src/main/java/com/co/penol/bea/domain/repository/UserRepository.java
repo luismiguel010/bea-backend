@@ -8,6 +8,7 @@ import java.util.Optional;
 public interface UserRepository {
     User saveUser(User user);
     Optional<User> getUserById(int id);
+    boolean existUserByIdentificationCard(String identificationCard);
     List<User> getAllUser();
     void deleteUserById(int id);
 }

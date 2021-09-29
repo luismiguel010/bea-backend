@@ -18,7 +18,11 @@ public class UserController {
 
     @PostMapping("/save")
     public ResponseEntity<User> save(@RequestBody User user) {
-        return new ResponseEntity<>(userService.saveUser(user), HttpStatus.CREATED);
+        if(userService.existUserByIdentificationCard(user.getIdentificationCard())){
+            return new ResponseEntity(HttpStatus.BAD_REQUEST);
+        } else {
+            return new ResponseEntity<>(userService.saveUser(user), HttpStatus.CREATED);
+        }
     }
 
     @PutMapping("/update")

@@ -22,6 +22,10 @@ public class UserService {
         return userRepository.getUserById(id);
     }
 
+    public boolean existUserByIdentificationCard(String identificationCard) {
+        return userRepository.existUserByIdentificationCard(identificationCard);
+    }
+
     public List<User> getAllUser() {
         return userRepository.getAllUser();
     }

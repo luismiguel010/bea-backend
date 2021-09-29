@@ -32,6 +32,13 @@ public class UserEntityRepository implements UserRepository {
     }
 
     @Override
+    public boolean existUserByIdentificationCard(String identificationCard) {
+        return userCrudRepository.findByIdentificationCard(identificationCard).isPresent();
+    }
+
+
+
+    @Override
     public List<User> getAllUser() {
         return userMapper.toUsers((List<UserEntity>) userCrudRepository.findAll());
     }
