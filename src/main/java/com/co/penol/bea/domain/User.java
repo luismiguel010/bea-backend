@@ -3,6 +3,7 @@ package com.co.penol.bea.domain;
 public class User {
 
     private int idUser;
+    private String identificationCard;
     private String names;
     private String lastnames;
     private Long phone;
@@ -16,6 +17,14 @@ public class User {
 
     public void setIdUser(int idUser) {
         this.idUser = idUser;
+    }
+
+    public String getIdentificationCard() {
+        return identificationCard;
+    }
+
+    public void setIdentificationCard(String identificationCard) {
+        this.identificationCard = identificationCard;
     }
 
     public String getNames() {

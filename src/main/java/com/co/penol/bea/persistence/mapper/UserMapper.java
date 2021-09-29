@@ -14,6 +14,7 @@ public interface UserMapper {
 
     @Mappings({
             @Mapping(source = "idUser", target = "idUser"),
+            @Mapping(source = "identificationCard", target = "identificationCard"),
             @Mapping(source = "names", target = "names"),
             @Mapping(source = "lastnames", target = "lastnames"),
             @Mapping(source = "phone", target = "phone"),
