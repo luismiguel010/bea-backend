@@ -37,6 +37,11 @@ public class UserController {
                 .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 
+    @GetMapping("/getUserByIc/{ic}")
+    public boolean getUserByIdentificationCard(@PathVariable("ic") String ic) {
+        return userService.existUserByIdentificationCard(ic);
+    }
+
     @GetMapping("/getAll")
     public ResponseEntity<List<User>> getAll() {
         return new ResponseEntity<>(userService.getAllUser(), HttpStatus.OK);
