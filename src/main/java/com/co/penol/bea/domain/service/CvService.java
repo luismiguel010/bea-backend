@@ -2,11 +2,14 @@ package com.co.penol.bea.domain.service;
 
 import com.co.penol.bea.domain.CV;
 import com.co.penol.bea.domain.repository.CvRepository;
+import org.apache.commons.io.FilenameUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 @Service
 public class CvService {
@@ -14,12 +17,20 @@ public class CvService {
     @Autowired
     private CvRepository cvRepository;
 
+    @Autowired
+    AzureBlobService azureBlobService;
+
     public List<CV> getAll() {
         return cvRepository.getAll();
     }
 
-    public CV saveCv(CV cv) {
-        return cvRepository.saveCv(cv);
+    public CV saveCv(CV cv, MultipartFile multipartFile) {
+        String fileName = cv.getDirectoryFile() + "-" +
+                cv.getIdCv() + "-" + UUID.randomUUID() + "." + FilenameUtils.getExtension(multipartFile.getOriginalFilename());
+        cv.setDirectoryFile(fileName);
+        CV cvResponse = cvRepository.saveCv(cv);
+        azureBlobService.upload(multipartFile, fileName);
+        return cvResponse;
     }
 
     public Optional<CV> getByIdCv(int id) {

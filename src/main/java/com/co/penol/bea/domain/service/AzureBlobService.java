@@ -18,11 +18,9 @@ public class AzureBlobService {
     @Autowired
     BlobClientBuilder client;
 
-    public String upload(MultipartFile file, String prefixName) {
+    public String upload(MultipartFile file, String fileName) {
         if(file != null && file.getSize() > 0) {
             try {
-                //implement your own file name logic.
-                String fileName = prefixName+ UUID.randomUUID().toString() +file.getOriginalFilename();
                 client.blobName(fileName).buildClient().upload(file.getInputStream(),file.getSize());
                 return fileName;
             } catch (IOException e) {

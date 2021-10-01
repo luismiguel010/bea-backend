@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
@@ -22,14 +23,15 @@ public class CvController {
     }
 
     @PostMapping("/save")
-    public ResponseEntity<CV> save(@RequestBody CV cv) {
-        return new ResponseEntity<>(cvService.saveCv(cv), HttpStatus.CREATED);
+    public ResponseEntity<CV> save(@RequestPart("cv") CV cv, @RequestPart("file") MultipartFile file) {
+        return new ResponseEntity<>(cvService.saveCv(cv, file), HttpStatus.CREATED);
     }
 
-    @PutMapping("/update")
+    // Servicio a implementar en un futuro
+    /*@PutMapping("/update")
     public ResponseEntity<CV> update(@RequestBody CV cv) {
         return new ResponseEntity<>(cvService.saveCv(cv), HttpStatus.OK);
-    }
+    }*/
 
     @GetMapping("/{id}")
     public ResponseEntity<CV> getById(@PathVariable("id") int id) {

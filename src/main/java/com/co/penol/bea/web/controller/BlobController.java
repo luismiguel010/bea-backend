@@ -3,14 +3,12 @@ package com.co.penol.bea.web.controller;
 import com.co.penol.bea.domain.service.AzureBlobService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ByteArrayResource;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
+
 
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
+
 
 @RestController
 @RequestMapping("/blob")
@@ -19,16 +17,8 @@ public class BlobController {
     @Autowired
     AzureBlobService azureBlobService;
 
-    @PostMapping(path = "/upload", consumes = {MediaType.MULTIPART_FORM_DATA_VALUE})
-    public Map<String, String> uploadFile(@RequestPart(value = "file", required = true) MultipartFile files)  {
-        String name = azureBlobService.upload(files, "prefix");
-        Map<String, String> result = new HashMap<>();
-        result.put("key", name);
-        return result;
-    }
-
     @GetMapping(path = "/download")
-    public ResponseEntity<ByteArrayResource> uploadFile(@RequestParam(value = "file") String file) throws IOException {
+    public ResponseEntity<ByteArrayResource> downloadFile(@RequestParam(value = "file") String file) throws IOException {
         byte[] data = azureBlobService.getFile(file);
         ByteArrayResource resource = new ByteArrayResource(data);
 
