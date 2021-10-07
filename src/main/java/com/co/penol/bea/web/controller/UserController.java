@@ -16,6 +16,7 @@ public class UserController {
     @Autowired
     private UserService userService;
 
+    @CrossOrigin(origins = "http://186.159.19.187:4200")
     @PostMapping("/save")
     public ResponseEntity<User> save(@RequestBody User user) {
         if(userService.existUserByIdentificationCard(user.getIdentificationCard())){
