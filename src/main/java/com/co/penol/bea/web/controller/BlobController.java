@@ -1,13 +1,16 @@
 package com.co.penol.bea.web.controller;
 
 import com.co.penol.bea.domain.service.AzureBlobService;
+import org.apache.commons.io.FilenameUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ByteArrayResource;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 
 import java.io.IOException;
+import java.util.UUID;
 
 
 @RestController

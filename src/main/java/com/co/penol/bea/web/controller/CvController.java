@@ -23,6 +23,7 @@ public class CvController {
         return new ResponseEntity<>(cvService.getAll(), HttpStatus.OK);
     }
 
+    @CrossOrigin(origins = "*")
     @PostMapping("/save")
     public ResponseEntity<CV> save(@RequestPart("cv") CV cv, @RequestPart("file") MultipartFile file) {
         return new ResponseEntity<>(cvService.saveCv(cv, file), HttpStatus.CREATED);

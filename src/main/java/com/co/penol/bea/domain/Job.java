@@ -1,8 +1,5 @@
 package com.co.penol.bea.domain;
 
-import java.util.List;
-import java.util.UUID;
-
 public class Job {
 
     private String idJob;
