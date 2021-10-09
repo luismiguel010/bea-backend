@@ -1,18 +1,20 @@
 package com.co.penol.bea.domain;
 
+import java.util.UUID;
+
 public class Administrator {
 
-    private int idAdmin;
+    private String idAdmin;
     private String names;
     private String lastnames;
     private String email;
     private String password;
 
-    public int getIdAdmin() {
+    public String getIdAdmin() {
         return idAdmin;
     }
 
-    public void setIdAdmin(int idAdmin) {
+    public void setIdAdmin(String idAdmin) {
         this.idAdmin = idAdmin;
     }
 

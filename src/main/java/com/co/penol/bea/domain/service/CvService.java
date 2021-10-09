@@ -33,15 +33,15 @@ public class CvService {
         return cvResponse;
     }
 
-    public Optional<CV> getByIdCv(int id) {
+    public Optional<CV> getByIdCv(String id) {
         return cvRepository.getByIdCv(id);
     }
 
-    public Optional<CV> getByIdUser(int id) {
+    public Optional<CV> getByIdUser(String id) {
         return cvRepository.getByIdUser(id);
     }
 
-    public boolean deleteCv(int id) {
+    public boolean deleteCv(String id) {
         return getByIdCv(id).map(cv -> {
             cvRepository.deleteCv(id);
             return true;

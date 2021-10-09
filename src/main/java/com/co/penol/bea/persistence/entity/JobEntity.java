@@ -1,26 +1,27 @@
 package com.co.penol.bea.persistence.entity;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.*;
-import java.util.List;
+import java.util.UUID;
 
 @Entity
 @Table(name = "jobs")
 public class JobEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_job")
-    private Integer idJob;
-
+    private String idJob;
     private String name;
     private String description;
     private Boolean state;
 
-    public Integer getIdJob() {
+    public String getIdJob() {
         return idJob;
     }
 
-    public void setIdJob(Integer idJob) {
+    public void setIdJob(String idJob) {
         this.idJob = idJob;
     }
 
@@ -47,5 +48,4 @@ public class JobEntity {
     public void setState(Boolean state) {
         this.state = state;
     }
-
 }

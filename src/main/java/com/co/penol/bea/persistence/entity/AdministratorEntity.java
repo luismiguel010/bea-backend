@@ -1,25 +1,25 @@
 package com.co.penol.bea.persistence.entity;
 
 import javax.persistence.*;
+import java.util.UUID;
 
 @Entity
 @Table(name = "administrators")
 public class AdministratorEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_admin")
-    private Integer idAdmin;
+    private String idAdmin;
     private String names;
     private String lastnames;
     private String email;
     private String password;
 
-    public Integer getIdAdmin() {
+    public String getIdAdmin() {
         return idAdmin;
     }
 
-    public void setIdAdmin(Integer idAdmin) {
+    public void setIdAdmin(String idAdmin) {
         this.idAdmin = idAdmin;
     }
 

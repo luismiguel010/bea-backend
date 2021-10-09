@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.UUID;
 
 @RestController
 @RequestMapping("/user")
@@ -32,7 +33,7 @@ public class UserController {
     }
 
     @GetMapping("/getById/{id}")
-    public ResponseEntity<User> getById(@PathVariable("id") int id) {
+    public ResponseEntity<User> getById(@PathVariable("id") String id) {
         return userService.getUserById(id)
                 .map(user -> new ResponseEntity<>(user, HttpStatus.OK))
                 .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
@@ -49,7 +50,7 @@ public class UserController {
     }
 
     @DeleteMapping("/delete/{id}")
-    public ResponseEntity delete(@PathVariable("id") int id) {
+    public ResponseEntity delete(@PathVariable("id") String id) {
         if (userService.deleteUserById(id)) {
             return new ResponseEntity(HttpStatus.OK);
         } else {

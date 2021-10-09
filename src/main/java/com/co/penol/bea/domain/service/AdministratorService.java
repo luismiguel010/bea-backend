@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
+import java.util.UUID;
 
 @Service
 public class AdministratorService {
@@ -13,7 +14,7 @@ public class AdministratorService {
     @Autowired
     private AdministratorRepository administratorRepository;
 
-    public Optional<Administrator> getAdministratorById(int id) {
+    public Optional<Administrator> getAdministratorById(String id) {
         return administratorRepository.getAdministratorById(id);
     }
 
@@ -21,7 +22,7 @@ public class AdministratorService {
         return administratorRepository.saveAdministrator(administrator);
     }
 
-    public boolean deleteAdministrator(int id) {
+    public boolean deleteAdministrator(String id) {
         return getAdministratorById(id).map(administrator -> {
             administratorRepository.deleteAdministrator(id);
             return true;

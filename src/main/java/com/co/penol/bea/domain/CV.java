@@ -2,28 +2,29 @@ package com.co.penol.bea.domain;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.UUID;
 
 public class CV {
 
-    private int idCv;
-    private int idUser;
+    private String idCv;
+    private String idUser;
     private String directoryFile;
     private LocalDateTime dateReceived;
     private List<JobCv> jobCvList;
 
-    public int getIdCv() {
+    public String getIdCv() {
         return idCv;
     }
 
-    public void setIdCv(int idCv) {
+    public void setIdCv(String idCv) {
         this.idCv = idCv;
     }
 
-    public int getIdUser() {
+    public String getIdUser() {
         return idUser;
     }
 
-    public void setIdUser(int idUser) {
+    public void setIdUser(String idUser) {
         this.idUser = idUser;
     }
 

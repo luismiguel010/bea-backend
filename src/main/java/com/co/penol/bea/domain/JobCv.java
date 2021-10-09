@@ -2,22 +2,22 @@ package com.co.penol.bea.domain;
 
 public class JobCv {
 
-    private int idCv;
-    private int idJob;
+    private String idCv;
+    private String idJob;
 
-    public int getIdJob() {
-        return idJob;
-    }
-
-    public void setIdJob(int idJob) {
-        this.idJob = idJob;
-    }
-
-    public int getIdCv() {
+    public String getIdCv() {
         return idCv;
     }
 
-    public void setIdCv(int idCv) {
+    public void setIdCv(String idCv) {
         this.idCv = idCv;
+    }
+
+    public String getIdJob() {
+        return idJob;
+    }
+
+    public void setIdJob(String idJob) {
+        this.idJob = idJob;
     }
 }

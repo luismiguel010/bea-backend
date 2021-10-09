@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
+import java.util.UUID;
 
 @Repository
 public class AdministratorEntityRepository implements AdministratorRepository {
@@ -20,7 +21,7 @@ public class AdministratorEntityRepository implements AdministratorRepository {
     private AdministratorMapper administratorMapper;
 
     @Override
-    public Optional<Administrator> getAdministratorById(int id) {
+    public Optional<Administrator> getAdministratorById(String id) {
         return administratorCrudRepository.findById(id).map(administrator -> administratorMapper.toAdministrator(administrator));
     }
 
@@ -31,7 +32,7 @@ public class AdministratorEntityRepository implements AdministratorRepository {
     }
 
     @Override
-    public void deleteAdministrator(int id) {
+    public void deleteAdministrator(String id) {
         administratorCrudRepository.deleteById(id);
     }
 }

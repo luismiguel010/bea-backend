@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 @Repository
 public class JobEntityRepository implements JobRepository {
@@ -26,7 +27,7 @@ public class JobEntityRepository implements JobRepository {
     }
 
     @Override
-    public Optional<Job> getJobById(int id) {
+    public Optional<Job> getJobById(String id) {
         return jobCrudRepository.findById(id).map(jobEntity -> jobMapper.toJob(jobEntity));
     }
 
@@ -36,7 +37,7 @@ public class JobEntityRepository implements JobRepository {
     }
 
     @Override
-    public void deleteJob(int id) {
+    public void deleteJob(String id) {
         jobCrudRepository.deleteById(id);
     }
 }

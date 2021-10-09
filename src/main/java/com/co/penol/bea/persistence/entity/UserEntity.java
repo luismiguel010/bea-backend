@@ -1,15 +1,15 @@
 package com.co.penol.bea.persistence.entity;
 
 import javax.persistence.*;
+import java.util.UUID;
 
 @Entity
 @Table(name = "users")
 public class UserEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_user")
-    private Integer idUser;
+    private String idUser;
     @Column(name = "identification_card")
     private String identificationCard;
     private String names;
@@ -24,11 +24,11 @@ public class UserEntity {
     @OneToOne(fetch = FetchType.LAZY, cascade =  CascadeType.ALL, mappedBy = "userEntity")
     private CVEntity cvEntity;
 
-    public Integer getIdUser() {
+    public String getIdUser() {
         return idUser;
     }
 
-    public void setIdUser(Integer idUser) {
+    public void setIdUser(String idUser) {
         this.idUser = idUser;
     }
 

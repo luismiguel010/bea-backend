@@ -7,6 +7,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.UUID;
+
 @RestController
 @RequestMapping("/admin")
 public class AdministratorController {
@@ -15,7 +17,7 @@ public class AdministratorController {
     private AdministratorService administratorService;
 
     @GetMapping("/get")
-    public ResponseEntity<Administrator> getAdministratorById(int id) {
+    public ResponseEntity<Administrator> getAdministratorById(String id) {
         return administratorService.getAdministratorById(id)
                 .map(administrator -> new ResponseEntity<>(administrator, HttpStatus.OK))
                 .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
@@ -32,7 +34,7 @@ public class AdministratorController {
     }
 
     @DeleteMapping("/delete")
-    public ResponseEntity deleteAdministrator(int id) {
+    public ResponseEntity deleteAdministrator(String id) {
         if (administratorService.deleteAdministrator(id)) {
             return new ResponseEntity(HttpStatus.OK);
         } else {

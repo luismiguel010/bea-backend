@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 @Repository
 public class CvEntityRepository implements CvRepository {
@@ -33,17 +34,17 @@ public class CvEntityRepository implements CvRepository {
     }
 
     @Override
-    public Optional<CV> getByIdCv(int id) {
+    public Optional<CV> getByIdCv(String id) {
         return cvCrudRepository.findById(id).map(cvEntity -> cvMapper.toCV(cvEntity));
     }
 
     @Override
-    public Optional<CV> getByIdUser(int id) {
+    public Optional<CV> getByIdUser(String id) {
         return cvCrudRepository.findByIdUser(id).map(cvEntity -> cvMapper.toCV(cvEntity));
     }
 
     @Override
-    public void deleteCv(int id) {
+    public void deleteCv(String id) {
         cvCrudRepository.deleteById(id);
     }
 }

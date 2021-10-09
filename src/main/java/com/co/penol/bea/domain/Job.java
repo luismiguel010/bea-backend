@@ -1,19 +1,20 @@
 package com.co.penol.bea.domain;
 
 import java.util.List;
+import java.util.UUID;
 
 public class Job {
 
-    private int idJob;
+    private String idJob;
     private String name;
     private String description;
     private boolean state;
 
-    public int getIdJob() {
+    public String getIdJob() {
         return idJob;
     }
 
-    public void setIdJob(int idJob) {
+    public void setIdJob(String idJob) {
         this.idJob = idJob;
     }
 
@@ -25,19 +26,19 @@ public class Job {
         this.name = name;
     }
 
-    public boolean isState() {
-        return state;
-    }
-
-    public void setState(boolean state) {
-        this.state = state;
-    }
-
     public String getDescription() {
         return description;
     }
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public boolean isState() {
+        return state;
+    }
+
+    public void setState(boolean state) {
+        this.state = state;
     }
 }

@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 @Repository
 public class UserEntityRepository implements UserRepository {
@@ -27,7 +28,7 @@ public class UserEntityRepository implements UserRepository {
     }
 
     @Override
-    public Optional<User> getUserById(int id) {
+    public Optional<User> getUserById(String id) {
         return userCrudRepository.findById(id).map(userEntity -> userMapper.toUser(userEntity));
     }
 
@@ -44,7 +45,7 @@ public class UserEntityRepository implements UserRepository {
     }
 
     @Override
-    public void deleteUserById(int id) {
+    public void deleteUserById(String id) {
         userCrudRepository.deleteById(id);
     }
 }

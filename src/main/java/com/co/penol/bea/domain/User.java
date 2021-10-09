@@ -1,8 +1,10 @@
 package com.co.penol.bea.domain;
 
+import java.util.UUID;
+
 public class User {
 
-    private int idUser;
+    private String idUser;
     private String identificationCard;
     private String names;
     private String lastnames;
@@ -11,11 +13,11 @@ public class User {
     private String email;
     private String academicProfile;
 
-    public int getIdUser() {
+    public String getIdUser() {
         return idUser;
     }
 
-    public void setIdUser(int idUser) {
+    public void setIdUser(String idUser) {
         this.idUser = idUser;
     }
 
@@ -74,5 +76,4 @@ public class User {
     public void setAcademicProfile(String academicProfile) {
         this.academicProfile = academicProfile;
     }
-
 }

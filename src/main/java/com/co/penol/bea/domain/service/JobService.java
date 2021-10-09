@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 @Service
 public class JobService {
@@ -18,7 +19,7 @@ public class JobService {
         return jobRepository.saveJob(job);
     }
 
-    public Optional<Job> getJobById(int id) {
+    public Optional<Job> getJobById(String id) {
         return jobRepository.getJobById(id);
     }
 
@@ -26,7 +27,7 @@ public class JobService {
         return jobRepository.getAllJob();
     }
 
-    public boolean deleteJob(int id) {
+    public boolean deleteJob(String id) {
         return getJobById(id).map(job -> {
             jobRepository.deleteJob(id);
             return true;

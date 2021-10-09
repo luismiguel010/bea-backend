@@ -7,7 +7,7 @@ import java.util.Optional;
 
 public interface JobRepository {
     Job saveJob(Job job);
-    Optional<Job> getJobById(int id);
+    Optional<Job> getJobById(String id);
     List<Job> getAllJob();
-    void deleteJob(int id);
+    void deleteJob(String id);
 }

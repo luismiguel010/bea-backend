@@ -1,31 +1,35 @@
 package com.co.penol.bea.persistence.entity;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
 import java.io.Serializable;
+import java.util.UUID;
 
 @Embeddable
 public class JobCvPK implements Serializable {
 
     @Column(name = "id_job")
-    private Integer idJob;
+    private String idJob;
 
     @Column(name = "id_cv")
-    private Integer idCv;
+    private String idCv;
 
-    public Integer getIdJob() {
+    public String getIdJob() {
         return idJob;
     }
 
-    public void setIdJob(Integer idJob) {
+    public void setIdJob(String idJob) {
         this.idJob = idJob;
     }
 
-    public Integer getIdCv() {
+    public String getIdCv() {
         return idCv;
     }
 
-    public void setIdCv(Integer idCv) {
+    public void setIdCv(String idCv) {
         this.idCv = idCv;
     }
 }

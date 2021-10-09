@@ -1,5 +1,6 @@
 package com.co.penol.bea.persistence.entity;
 
+
 import javax.persistence.*;
 
 @Entity

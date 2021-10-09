@@ -5,6 +5,6 @@ import org.springframework.data.repository.CrudRepository;
 
 import java.util.Optional;
 
-public interface UserCrudRepository extends CrudRepository<UserEntity, Integer> {
+public interface UserCrudRepository extends CrudRepository<UserEntity, String> {
     Optional<UserEntity> findByIdentificationCard(String identificationCard);
 }
