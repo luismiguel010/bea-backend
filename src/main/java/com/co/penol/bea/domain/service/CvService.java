@@ -26,7 +26,7 @@ public class CvService {
 
     public CV saveCv(CV cv, MultipartFile multipartFile) {
         String fileName = cv.getDirectoryFile() + "-" +
-                cv.getIdCv() + "-" + UUID.randomUUID() + "." + FilenameUtils.getExtension(multipartFile.getOriginalFilename());
+                cv.getIdCv() + "." + FilenameUtils.getExtension(multipartFile.getOriginalFilename());
         cv.setDirectoryFile(fileName);
         CV cvResponse = cvRepository.saveCv(cv);
         azureBlobService.upload(multipartFile, fileName);

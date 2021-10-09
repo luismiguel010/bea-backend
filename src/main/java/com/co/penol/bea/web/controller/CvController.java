@@ -4,6 +4,7 @@ import com.co.penol.bea.domain.CV;
 import com.co.penol.bea.domain.service.CvService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -24,7 +25,11 @@ public class CvController {
     }
 
     @CrossOrigin(origins = "*")
-    @PostMapping("/save")
+    @PostMapping(
+            value = "/save",
+            produces = MediaType.APPLICATION_JSON_VALUE,
+            consumes = {MediaType.APPLICATION_JSON_VALUE, MediaType.MULTIPART_FORM_DATA_VALUE}
+    )
     public ResponseEntity<CV> save(@RequestPart("cv") CV cv, @RequestPart("file") MultipartFile file) {
         return new ResponseEntity<>(cvService.saveCv(cv, file), HttpStatus.CREATED);
     }
