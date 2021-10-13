@@ -1,7 +1,5 @@
 package com.co.penol.bea.domain;
 
-import java.util.UUID;
-
 public class User {
 
     private String idUser;

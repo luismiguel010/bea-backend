@@ -10,7 +10,6 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.UUID;
 
 @Repository
 public class UserEntityRepository implements UserRepository {
@@ -37,8 +36,6 @@ public class UserEntityRepository implements UserRepository {
         return userCrudRepository.findByIdentificationCard(identificationCard).isPresent();
     }
 
-
-
     @Override
     public List<User> getAllUser() {
         return userMapper.toUsers((List<UserEntity>) userCrudRepository.findAll());
@@ -47,5 +44,10 @@ public class UserEntityRepository implements UserRepository {
     @Override
     public void deleteUserById(String id) {
         userCrudRepository.deleteById(id);
+    }
+
+    @Override
+    public boolean isExistUser(String id) {
+        return userCrudRepository.existsById(id);
     }
 }

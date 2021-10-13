@@ -9,7 +9,6 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.UUID;
 
 @Service
 public class CvService {
@@ -26,7 +25,7 @@ public class CvService {
 
     public CV saveCv(CV cv, MultipartFile multipartFile) {
         String fileName = cv.getDirectoryFile() + "-" +
-                cv.getIdCv();
+                cv.getIdCv() + "." +  FilenameUtils.getExtension(multipartFile.getOriginalFilename());
         cv.setDirectoryFile(fileName);
         CV cvResponse = cvRepository.saveCv(cv);
         azureBlobService.upload(multipartFile, fileName);

@@ -12,4 +12,5 @@ public interface UserRepository {
     boolean existUserByIdentificationCard(String identificationCard);
     List<User> getAllUser();
     void deleteUserById(String id);
+    boolean isExistUser(String id);
 }
