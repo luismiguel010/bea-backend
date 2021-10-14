@@ -11,7 +11,7 @@ import java.util.Date;
 @Component
 public class JWTUtil {
 
-    private static final String KEY = "beapenol";
+    private static final String KEY = "b34pen0l";
 
     public String generateToken(UserDetails userDetails) {
         return Jwts.builder().setSubject(userDetails.getUsername()).setIssuedAt(new Date())

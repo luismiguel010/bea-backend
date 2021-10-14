@@ -34,11 +34,11 @@ public class AdministratorController {
     }
 
     @DeleteMapping("/delete")
-    public ResponseEntity deleteAdministrator(String id) {
+    public ResponseEntity<HttpStatus> deleteAdministrator(String id) {
         if (administratorService.deleteAdministrator(id)) {
-            return new ResponseEntity(HttpStatus.OK);
+            return new ResponseEntity<>(HttpStatus.OK);
         } else {
-            return new ResponseEntity(HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
 

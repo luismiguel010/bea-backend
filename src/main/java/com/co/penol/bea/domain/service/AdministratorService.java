@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
-import java.util.UUID;
 
 @Service
 public class AdministratorService {
@@ -16,6 +15,10 @@ public class AdministratorService {
 
     public Optional<Administrator> getAdministratorById(String id) {
         return administratorRepository.getAdministratorById(id);
+    }
+
+    public Optional<Administrator> getAdministratorByEmail(String email) {
+        return administratorRepository.getAdministratorByEmail(email);
     }
 
     public Administrator saveAdministrator(Administrator administrator) {

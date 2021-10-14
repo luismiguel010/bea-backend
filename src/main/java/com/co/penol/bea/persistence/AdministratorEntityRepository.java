@@ -20,7 +20,14 @@ public class AdministratorEntityRepository implements AdministratorRepository {
 
     @Override
     public Optional<Administrator> getAdministratorById(String id) {
-        return administratorCrudRepository.findById(id).map(administrator -> administratorMapper.toAdministrator(administrator));
+        return administratorCrudRepository.findById(id)
+                .map(administrator -> administratorMapper.toAdministrator(administrator));
+    }
+
+    @Override
+    public Optional<Administrator> getAdministratorByEmail(String email) {
+        return administratorCrudRepository.findByEmail(email)
+                .map(administrator -> administratorMapper.toAdministrator(administrator));
     }
 
     @Override
@@ -33,4 +40,5 @@ public class AdministratorEntityRepository implements AdministratorRepository {
     public void deleteAdministrator(String id) {
         administratorCrudRepository.deleteById(id);
     }
+
 }
