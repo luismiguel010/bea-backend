@@ -21,6 +21,7 @@ dependencies {
 	runtimeOnly 'org.postgresql:postgresql'
 	compileOnly 'org.projectlombok:lombok'
 
+	implementation 'io.jsonwebtoken:jjwt:0.9.1'
 	implementation 'org.mapstruct:mapstruct:1.4.2.Final'
 	annotationProcessor 'org.mapstruct:mapstruct-processor:1.4.2.Final'
 	implementation 'com.azure.spring:azure-spring-boot-starter-storage:3.8.0'

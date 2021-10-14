@@ -2,14 +2,12 @@ package com.co.penol.bea.persistence;
 
 import com.co.penol.bea.domain.Administrator;
 import com.co.penol.bea.domain.repository.AdministratorRepository;
-import com.co.penol.bea.persistence.entity.AdministratorEntity;
 import com.co.penol.bea.persistence.mapper.AdministratorMapper;
 import com.co.penol.bea.persistence.queries.AdministratorCrudRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
-import java.util.UUID;
 
 @Repository
 public class AdministratorEntityRepository implements AdministratorRepository {
