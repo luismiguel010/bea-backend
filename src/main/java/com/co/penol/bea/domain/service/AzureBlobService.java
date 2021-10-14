@@ -32,7 +32,7 @@ public class AzureBlobService {
 
     public byte[] getFile(String name) {
         try {
-            File temp = new File("/temp/"+name);
+            File temp = new File(name);
             BlobProperties properties = client.blobName(name).buildClient().downloadToFile(temp.getPath());
             byte[] content = Files.readAllBytes(Paths.get(temp.getPath()));
             temp.delete();
