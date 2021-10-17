@@ -13,11 +13,9 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import java.util.Locale;
 import java.util.Optional;
 
 @RestController
@@ -36,13 +34,14 @@ public class AuthController {
     @Autowired
     private JWTUtil jwtUtil;
 
+    @CrossOrigin(origins = "*")
     @PostMapping("/authenticate")
     public ResponseEntity<AuthenticationResponse> createToken(@RequestBody AuthenticationRequest request) {
         try {
             Optional<Administrator> administrator = administratorService.getAdministratorByEmail(request.getUsername());
             String passwordDB = administrator.map(Administrator::getPassword).orElse("");
-            if (request.getPassword().equals(passwordDB)) {
-                authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(request.getUsername(), request.getPassword()));
+            if (request.getPassword().equalsIgnoreCase(passwordDB)) {
+                authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(request.getUsername(), request.getPassword().toUpperCase()));
                 UserDetails userDetails = beaUserDetailService.loadUserByUsername(request.getUsername());
                 String jwt = jwtUtil.generateToken(userDetails);
                 return new ResponseEntity<>(new AuthenticationResponse(jwt), HttpStatus.OK);
