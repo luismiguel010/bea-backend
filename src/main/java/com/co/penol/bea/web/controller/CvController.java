@@ -23,7 +23,6 @@ public class CvController {
         return new ResponseEntity<>(cvService.getAll(), HttpStatus.OK);
     }
 
-    @CrossOrigin(origins = "*")
     @PostMapping(
             value = "/save",
             produces = MediaType.APPLICATION_JSON_VALUE,
