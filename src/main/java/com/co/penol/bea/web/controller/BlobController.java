@@ -28,4 +28,15 @@ public class BlobController {
                 .header("Content-disposition", "attachment; filename=\"" + file + "\"")
                 .body(resource);
     }
+
+    @GetMapping("/download/{directoryFile}")
+    public ResponseEntity<Resource> downloadCv(@PathVariable("directoryFile") String directoryFile) {
+        byte[] data = azureBlobService.getFile(directoryFile);
+        ByteArrayResource resource = new ByteArrayResource(data);
+        return ResponseEntity
+                .ok()
+                .header("Content-type", "application/octet-stream")
+                .header("Content-disposition", "attachment; filename=\"" + directoryFile + "\"")
+                .body(resource);
+    }
 }

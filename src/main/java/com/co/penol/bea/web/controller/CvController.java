@@ -45,7 +45,7 @@ public class CvController {
                 .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 
-    @GetMapping("/getIdUser/{id}")
+    @GetMapping("/getByIdUser/{id}")
     public ResponseEntity<CV> getByIdUser(@PathVariable("id") String id) {
         return cvService.getByIdUser(id)
                 .map(cv -> new ResponseEntity<>(cv, HttpStatus.OK))
