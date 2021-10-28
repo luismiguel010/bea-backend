@@ -18,7 +18,7 @@ public class BeaApplication {
 		return new WebMvcConfigurer() {
 			@Override
 			public void addCorsMappings(CorsRegistry registry) {
-				registry.addMapping("/job/*").allowedOrigins("https://beapenol.web.app");
+				registry.addMapping("/job/**").allowedOrigins("https://beapenol.web.app");
 			}
 		};
 	}
