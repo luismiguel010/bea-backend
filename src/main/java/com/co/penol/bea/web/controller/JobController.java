@@ -22,6 +22,7 @@ public class JobController {
         return new ResponseEntity<>(jobService.saveJob(job), HttpStatus.CREATED);
     }
 
+    @CrossOrigin("https://beapenol.web.app")
     @PutMapping("/update")
     public ResponseEntity<Job> update(@RequestBody Job job) {
         return new ResponseEntity<>(jobService.saveJob(job),HttpStatus.OK);
