@@ -34,6 +34,7 @@ public class JobController {
                 .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 
+    @CrossOrigin("https://beapenol.web.app")
     @GetMapping("/getAll")
     public ResponseEntity<List<Job>> getAll() {
         return new ResponseEntity<>(jobService.getAllJob(), HttpStatus.OK);
