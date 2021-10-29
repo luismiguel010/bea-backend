@@ -49,7 +49,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Bean
     CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
-        configuration.setAllowedOrigins(Arrays.asList("https://beapenol.web.app"));
+        configuration.setAllowedOrigins(Arrays.asList("https://beapenol.web.app", "https://beapenol-admin.web.app"));
         configuration.setAllowedMethods(Arrays.asList("GET","POST","PUT"));
         configuration.applyPermitDefaultValues();
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
