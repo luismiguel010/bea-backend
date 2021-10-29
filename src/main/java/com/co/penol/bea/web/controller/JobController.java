@@ -8,7 +8,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.UUID;
 
 @RestController
 @RequestMapping("/job")
@@ -17,16 +16,19 @@ public class JobController {
     @Autowired
     private JobService jobService;
 
+    @CrossOrigin(origins = "https://beapenol.web.app")
     @PostMapping("/save")
     public ResponseEntity<Job> save(@RequestBody Job job) {
         return new ResponseEntity<>(jobService.saveJob(job), HttpStatus.CREATED);
     }
 
+    @CrossOrigin(origins = "https://beapenol.web.app")
     @PutMapping("/update")
     public ResponseEntity<Job> update(@RequestBody Job job) {
         return new ResponseEntity<>(jobService.saveJob(job),HttpStatus.OK);
     }
 
+    @CrossOrigin(origins = "https://beapenol.web.app")
     @GetMapping("/getById/{id}")
     public ResponseEntity<Job> getById(@PathVariable("id") String id) {
         return jobService.getJobById(id)
@@ -34,11 +36,13 @@ public class JobController {
                 .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 
+    @CrossOrigin(origins = "https://beapenol.web.app")
     @GetMapping("/getAll")
     public ResponseEntity<List<Job>> getAll() {
         return new ResponseEntity<>(jobService.getAllJob(), HttpStatus.OK);
     }
 
+    @CrossOrigin(origins = "https://beapenol.web.app")
     @DeleteMapping("/delete/{id}")
     public ResponseEntity delete(@PathVariable("id") String id) {
         if(jobService.deleteJob(id)){
@@ -46,6 +50,5 @@ public class JobController {
         } else {
             return new ResponseEntity(HttpStatus.NOT_FOUND);
         }
-
     }
 }
