@@ -21,6 +21,7 @@ public interface UserMapper {
             @Mapping(source = "address", target = "address"),
             @Mapping(source = "email", target = "email"),
             @Mapping(source = "academicProfile", target = "academicProfile"),
+            @Mapping(source = "profession", target = "profession"),
     })
     User toUser(UserEntity userEntity);
     List<User> toUsers(List<UserEntity> userEntityList);

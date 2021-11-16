@@ -17,6 +17,15 @@ public class UserEntity {
     private Long phone;
     private String address;
     private String email;
+    private String profession;
+
+    public String getProfession() {
+        return profession;
+    }
+
+    public void setProfession(String profession) {
+        this.profession = profession;
+    }
 
     @Column(name = "academic_profile")
     private String academicProfile;

@@ -10,6 +10,15 @@ public class User {
     private String address;
     private String email;
     private String academicProfile;
+    private String profession;
+
+    public String getProfession() {
+        return profession;
+    }
+
+    public void setProfession(String profession) {
+        this.profession = profession;
+    }
 
     public String getIdUser() {
         return idUser;
