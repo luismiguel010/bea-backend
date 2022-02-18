@@ -17,6 +17,12 @@ public interface JobMapper {
             @Mapping(source = "name", target = "name"),
             @Mapping(source = "description", target = "description"),
             @Mapping(source = "state", target = "state"),
+            @Mapping(source = "dateInit", target = "dateInit"),
+            @Mapping(source = "dateFinish", target = "dateFinish"),
+            @Mapping(source = "salary", target = "salary"),
+            @Mapping(source = "phone", target = "phone"),
+            @Mapping(source = "company", target = "company"),
+            @Mapping(source = "category", target = "category"),
     })
     Job toJob(JobEntity jobEntity);
     List<Job> toJobList(List<JobEntity> jobEntityList);
