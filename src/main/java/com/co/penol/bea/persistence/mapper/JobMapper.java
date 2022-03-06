@@ -20,7 +20,7 @@ public interface JobMapper {
             @Mapping(source = "dateInit", target = "dateInit"),
             @Mapping(source = "dateFinish", target = "dateFinish"),
             @Mapping(source = "salary", target = "salary"),
-            @Mapping(source = "phone", target = "phone"),
+            @Mapping(source = "address", target = "address"),
             @Mapping(source = "company", target = "company"),
             @Mapping(source = "category", target = "category"),
     })

@@ -11,7 +11,7 @@ public class Job {
     private LocalDateTime dateInit;
     private LocalDateTime dateFinish;
     private String salary;
-    private String phone;
+    private String address;
     private String company;
     private String category;
 
@@ -71,12 +71,12 @@ public class Job {
         this.salary = salary;
     }
 
-    public String getPhone() {
-        return phone;
+    public String getAddress() {
+        return address;
     }
 
-    public void setPhone(String phone) {
-        this.phone = phone;
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     public String getCompany() {

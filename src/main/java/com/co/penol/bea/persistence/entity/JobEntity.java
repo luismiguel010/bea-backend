@@ -19,7 +19,7 @@ public class JobEntity {
     private LocalDateTime dateFinish;
     @Column(name = "salario")
     private String salary;
-    private String phone;
+    private String address;
     @Column(name = "empresa")
     private String company;
     @Column(name = "categoria")
@@ -81,12 +81,12 @@ public class JobEntity {
         this.salary = salary;
     }
 
-    public String getPhone() {
-        return phone;
+    public String getAddress() {
+        return address;
     }
 
-    public void setPhone(String phone) {
-        this.phone = phone;
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     public String getCompany() {
