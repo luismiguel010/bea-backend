@@ -38,6 +38,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/**/authenticate",
                             "/**/job/getAll",
                             "/**/job/getById/{id}",
+                            "/**/capacitacion/getAll",
+                            "/**/capacitacion/getById/{id}",
                             "/**/cv/save",
                             "/**/user/save",
                             "/**/blob/download/formato"

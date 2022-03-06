@@ -5,7 +5,9 @@ import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.List;
 
+import com.co.penol.bea.domain.Capacitacion;
 import com.co.penol.bea.domain.Job;
+import com.co.penol.bea.domain.repository.CapacitacionRepository;
 import com.co.penol.bea.domain.repository.JobRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -21,6 +23,8 @@ public class ScheduledTasksJobs {
 
     @Autowired
     private JobRepository jobRepository;
+    @Autowired
+    private CapacitacionRepository capacitacionRepository;
 
     @Scheduled(cron = "0 0 22 * * ?", zone = "America/Bogota")
     public void setAvailableJob() {
@@ -29,6 +33,17 @@ public class ScheduledTasksJobs {
             if(job.getDateFinish().getDayOfYear() == LocalDateTime.now().getDayOfYear()){
                 job.setState(false);
                 jobRepository.saveJob(job);
+            }
+        }
+    }
+
+    @Scheduled(cron = "0 0 22 * * ?", zone = "America/Bogota")
+    public void setAvailableCapacitacion() {
+        List<Capacitacion> capacitacionList = capacitacionRepository.getAllCapacitacion();
+        for (Capacitacion capacitacion:capacitacionList) {
+            if(capacitacion.getDateFinish().getDayOfYear() == LocalDateTime.now().getDayOfYear()){
+                capacitacion.setState(false);
+                capacitacionRepository.saveCapacitacion(capacitacion);
             }
         }
     }
