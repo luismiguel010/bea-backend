@@ -16,6 +16,7 @@ public interface JobMapper {
             @Mapping(source = "idJob", target = "idJob"),
             @Mapping(source = "name", target = "name"),
             @Mapping(source = "description", target = "description"),
+            @Mapping(source = "requisito", target = "requisito"),
             @Mapping(source = "state", target = "state"),
             @Mapping(source = "dateInit", target = "dateInit"),
             @Mapping(source = "dateFinish", target = "dateFinish"),

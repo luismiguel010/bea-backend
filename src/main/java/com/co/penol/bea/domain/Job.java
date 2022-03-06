@@ -7,6 +7,7 @@ public class Job {
     private String idJob;
     private String name;
     private String description;
+    private String requisito;
     private boolean state;
     private LocalDateTime dateInit;
     private LocalDateTime dateFinish;
@@ -37,6 +38,14 @@ public class Job {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getRequisito() {
+        return requisito;
+    }
+
+    public void setRequisito(String requisito) {
+        this.requisito = requisito;
     }
 
     public boolean isState() {

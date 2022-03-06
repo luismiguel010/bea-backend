@@ -12,6 +12,7 @@ public class JobEntity {
     private String idJob;
     private String name;
     private String description;
+    private String requisito;
     private Boolean state;
     @Column(name = "date_init")
     private LocalDateTime dateInit;
@@ -47,6 +48,14 @@ public class JobEntity {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getRequisito() {
+        return requisito;
+    }
+
+    public void setRequisito(String requisito) {
+        this.requisito = requisito;
     }
 
     public Boolean getState() {
