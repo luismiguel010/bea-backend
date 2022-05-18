@@ -20,11 +20,7 @@ public class UserController {
     @CrossOrigin(origins = "*")
     @PostMapping("/save")
     public ResponseEntity<User> save(@RequestBody User user) {
-        if(userService.existUserByIdentificationCard(user.getIdentificationCard())){
-            return new ResponseEntity(HttpStatus.BAD_REQUEST);
-        } else {
-            return new ResponseEntity<>(userService.saveUser(user), HttpStatus.CREATED);
-        }
+        return new ResponseEntity<>(userService.saveUser(user), HttpStatus.CREATED);
     }
 
     @PutMapping("/update")

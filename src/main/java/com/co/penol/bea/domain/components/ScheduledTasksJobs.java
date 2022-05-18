@@ -26,7 +26,7 @@ public class ScheduledTasksJobs {
     @Autowired
     private CapacitacionRepository capacitacionRepository;
 
-    @Scheduled(cron = "0 0 22 * * ?", zone = "America/Bogota")
+    @Scheduled(cron = "05 50 21 * * ?", zone = "America/Bogota")
     public void setAvailableJob() {
         List<Job> jobList = jobRepository.getAllJob();
         for (Job job:jobList) {
