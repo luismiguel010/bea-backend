@@ -42,7 +42,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                             "/**/capacitacion/getById/{id}",
                             "/**/cv/save",
                             "/**/user/save",
-                            "/**/blob/download/formato"
+                            "/**/blob/download/formato",
+                            "/**/aliado/get",
+                            "/**/aliado/getAll"
                         ).permitAll()
                 .anyRequest().authenticated().and().sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
@@ -53,7 +55,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
         configuration.setAllowedOrigins(Arrays.asList("https://beapenol.web.app", "https://beapenol-admin.web.app", "http://localhost:4200"));
-        configuration.setAllowedMethods(Arrays.asList("GET","POST","PUT"));
+        configuration.setAllowedMethods(Arrays.asList("GET","POST","PUT", "DELETE"));
         configuration.applyPermitDefaultValues();
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", configuration);
