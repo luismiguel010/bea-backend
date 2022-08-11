@@ -42,7 +42,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                             "/**/capacitacion/getById/{id}",
                             "/**/cv/save",
                             "/**/user/save",
-                            "/**/blob/download/formato"
+                            "/**/blob/download/formato",
+                            "/**/aliado/get",
+                            "/**/aliado/getAll"
                         ).permitAll()
                 .anyRequest().authenticated().and().sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
