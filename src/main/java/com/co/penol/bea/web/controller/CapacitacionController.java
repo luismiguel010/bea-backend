@@ -40,7 +40,7 @@ public class CapacitacionController {
     }
 
     @DeleteMapping("/delete/{id}")
-    public ResponseEntity<HttpStatus> delete(@PathVariable("id") String id) {
+    public ResponseEntity delete(@PathVariable("id") String id) {
         if(capacitacionService.deleteCapacitacion(id)){
             return new ResponseEntity(HttpStatus.OK);
         } else {

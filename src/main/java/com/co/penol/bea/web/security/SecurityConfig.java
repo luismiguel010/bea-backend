@@ -55,7 +55,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
         configuration.setAllowedOrigins(Arrays.asList("https://beapenol.web.app", "https://beopenol.web.app", "https://beapenol-admin.web.app", "http://localhost:4200"));
-        configuration.setAllowedMethods(Arrays.asList("GET","POST","PUT"));
+        configuration.setAllowedMethods(Arrays.asList("GET","POST","PUT", "DELETE"));
         configuration.applyPermitDefaultValues();
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", configuration);
