@@ -15,7 +15,6 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Locale;
 import java.util.Optional;
 
 @RestController
@@ -41,14 +40,15 @@ public class AuthController {
             Optional<Administrator> administrator = administratorService.getAdministratorByEmail(request.getUsername());
             String passwordDB = administrator.map(Administrator::getPassword).orElse("");
             if (request.getPassword().equalsIgnoreCase(passwordDB)) {
-                authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(request.getUsername(), request.getPassword().toUpperCase()));
+                authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(request.getUsername(),
+                        request.getPassword().toUpperCase()));
                 UserDetails userDetails = beaUserDetailService.loadUserByUsername(request.getUsername());
                 String jwt = jwtUtil.generateToken(userDetails);
                 return new ResponseEntity<>(new AuthenticationResponse(jwt), HttpStatus.OK);
             } else {
                 return new ResponseEntity<>(HttpStatus.FORBIDDEN);
             }
-        }catch (BadCredentialsException badCredentialsException){
+        } catch (BadCredentialsException badCredentialsException) {
             return new ResponseEntity<>(HttpStatus.FORBIDDEN);
         }
 
