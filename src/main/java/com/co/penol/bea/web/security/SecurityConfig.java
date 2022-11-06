@@ -44,7 +44,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                             "/**/user/save",
                             "/**/blob/download/formato",
                             "/**/aliado/get",
-                            "/**/aliado/getAll"
+                            "/**/aliado/getAll",
+                            "/**/health/ping"
                         ).permitAll()
                 .anyRequest().authenticated().and().sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
